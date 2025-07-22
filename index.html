@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Spa de uñas profesional en Girardot con los mejores diseños y tratamientos de manicura y pedicura. Reserva tu cita hoy mismo.">
+    <meta name="keywords" content="uñas, spa, manicura, pedicura, acrílicas, gelish, belleza de uñas, Girardot">
+    <meta name="author" content="Aleja Torres Nails">
+    
+    <title>Aleja Torres Nails | Spa Profesional de Uñas en Girardot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Mobile -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="images/logo-aleya-nails.png" alt="Aleya Torres Nails" class="logo-img">
+            </div>
+
+            <div class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio"><i class="fas fa-home"></i> Inicio</a>
+                <a href="#servicios"><i class="fas fa-spa"></i> Servicios</a>
+                <a href="#galeria"><i class="fas fa-images"></i> Galería</a>
+                <a href="#contacto"><i class="fas fa-phone-alt"></i> Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Belleza profesional en tus uñas</h1>
+            <p>Servicios de alta calidad con productos premium y diseños exclusivos en Girardot</p>
+            <div class="btn-container">
+                <a href="#contacto" class="btn btn-reserva">ENVIAR RESERVA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="section" id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="images/manicura.jpg" alt="Manicura profesional">
+                </div>
+                <div class="service-content">
+                    <h3>Manicura y Pedicura tradicional</h3>
+                    <p>Tratamiento completo con exfoliación, hidratación y masaje</p>
+                    <div class="price">$45.000</div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="images/semipermanente.jpg" alt="Semipermanente">
+                </div>
+                <div class="service-content">
+                    <h3>Semipermanente</h3>
+                    <p>Esmaltado que dura hasta 3 semanas sin perder brillo.</p>
+                    <div class="price">$60.000</div>
+                </div>
+            </div>
+            
+       
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="images/acrilico.jpg" alt="Baño en acrílico">
+                </div>
+                <div class="service-content">
+                    <h3>Baño en acrílico</h3>
+                    <p>Fortalece y da durabilidad a tus uñas.</p>
+                    <div class="price">$70.000</div>
+                </div>
+            </div>
+
+
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="images/press_on.jpg" alt="Press on">
+                </div>
+                <div class="service-content">
+                    <h3>Press on</h3>
+                    <p>Diseños personalizados para lucir unas manos elegantes.</p>
+                    <div class="price">$50.000</div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section class="section" id="galeria">
+        <h2 class="section-title">Nuestros Trabajos</h2>
+        <div class="gallery-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="images/galeria1.jpg" alt="Diseño de uñas 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/galeria2.jpg" alt="Diseño de uñas 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/galeria3.jpg" alt="Diseño de uñas 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/galeria4.jpg" alt="Diseño de uñas 3">
+                </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Anterior">❮</button>
+            <button class="carousel-btn next" aria-label="Siguiente">❯</button>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="section" id="contacto">
+        <h2 class="section-title">Reserva tu Cita</h2>
+        <div class="contact-container">
+            <form class="contact-form" action="https://formspree.io/f/{TU_ID_FORMSPREE}" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Servicio</label>
+                    <select id="service" name="service" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="manicure">Manicura Spa</option>
+                        <option value="pedicure">Pedicura Premium</option>
+                        <option value="acrilicas">Uñas Acrílicas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Fecha preferida</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje adicional</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Enviar reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Aleja Torres Nails</h3>
+        <p>Profesional en el cuidado y embellecimiento de uñas</p>
+        
+        <div class="location">
+            <h4><i class="fas fa-map-marker-alt"></i> Visítanos</h4>
+            <a href="https://www.google.com/maps?q=Cl.+22+%2312-41,+Girardot,+Cundinamarca" target="_blank" class="map-link">
+                <div class="map-container">
+                    <img src="images/Maps3aleja.JPG" alt="Ubicación de Aleja Torres Nails en Girardot" class="static-map">
+                    <div class="map-overlay">
+                        <span>Haz clic para abrir en Google Maps</span>
+                    </div>
+                </div>
+            </a>
+            <p class="address">Cl. 22 #12-41, Girardot, Cundinamarca</p>
+        </div>
+        
+        <div class="payment-methods">
+            <h4>Métodos de pago aceptados</h4>
+            <div class="payment-icons">
+                <div class="payment-icon" title="Efectivo">
+                    <div class="payment-img-container cash-container">
+                        <img src="images/Efectivo1.png" alt="Efectivo" class="payment-custom-img cash-img">
+                    </div>
+                    <span>Efectivo</span>
+                </div>
+                <div class="payment-icon" title="Nequi">
+                    <div class="payment-img-container nequi-container">
+                        <img src="images/nequi123.png" alt="Nequi" class="payment-custom-img nequi-img">
+                    </div>
+                    <span>Nequi</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/nails_alejatorres?igsh=MXh3b2NiZG0ydXZndQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/16z3LZqx9o/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> 320 410 26 88</p>
+            <p><i class="fas fa-envelope"></i> contacto@alejanails.com</p>
+        </div>
+        
+        <p class="copyright">&copy; 2025 Aleja Torres Nails. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/573204102688" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

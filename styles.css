@@ -1,0 +1,858 @@
+/* RESET & VARIABLES */
+:root {
+    --rosa: #f8c8dc;
+    --rosa-oscuro: #f4acb7;
+    --rosa-intenso: #ff758c;
+    --rosa-claro: #ff7eb3;
+    --blanco: #fff9fb;
+    --negro: #333;
+    --gris: #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--negro);
+    background: var(--blanco);
+    overflow-x: hidden;
+}
+
+/* HEADER MOBILE */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 10px 15px;
+    min-height: 90px;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* LOGO RESPONSIVE */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.logo-img {
+    height: clamp(85px, 18vw, 130px);
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+}
+
+/* HAMBURGER MENU */
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    
+    position: fixed; /* Fija el botón en la pantalla */
+    right: 15px;    /* Lo coloca en la esquina derecha */
+    top: 25px;      /* Ajusta la posición vertical */
+    z-index: 1001;  /* Asegura que esté por encima de otros elementos */
+}
+
+.menu-btn span {
+    height: 3px;
+    width: 100%;
+    background: var(--rosa-oscuro);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    
+}
+
+
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 100px 30px 30px;
+    transition: right 0.4s ease;
+    z-index: 100;
+}
+
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links a {
+    padding: 15px 0;
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a i {
+    margin-right: 10px;
+    color: var(--rosa);
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: 
+        linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%),
+        url('https://images.unsplash.com/photo-1599351431405-41e8b7f23630?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+    background-blend-mode: multiply;
+    padding: 0 20px;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='3' fill='white' fill-opacity='0.2'/%3E%3Ccircle cx='70' cy='70' r='5' fill='white' fill-opacity='0.2'/%3E%3Ccircle cx='50' cy='20' r='4' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E");
+}
+
+.hero-content {
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    padding-top: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    margin-top: -30px;
+}
+
+.hero-content h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+    margin-top: 0; /* Elimina cualquier margen superior adicional */
+    padding-top: 0; /* Elimina cualquier padding superior adicional */
+}
+
+.hero-content p {
+    color: white;
+    margin-bottom: 35px;
+    font-size: 1.3rem;
+    font-weight: 300;
+    word-wrap: break-word; /* Rompe palabras largas */
+    max-width: 100%;       /* Limita el ancho al contenedor */
+}
+
+/* BOTONES */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.btn, .btn-reserva {
+    display: inline-block;
+    background: linear-gradient(to right, var(--rosa-intenso), var(--rosa-claro));
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover, .btn-reserva:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40px;
+    height: 200%;
+    background: rgba(255,255,255,0.3);
+    transform: rotate(25deg);
+    transition: all 0.6s ease;
+}
+
+.btn:hover::after {
+    left: 120%;
+}
+
+/* SERVICIOS */
+.section {
+    padding: 80px 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--rosa-oscuro);
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--rosa);
+    border-radius: 2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.service-img {
+    height: 250px;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.1);
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.service-content p {
+    margin-bottom: 15px;
+    color: var(--negro);
+}
+
+.price {
+    color: var(--rosa-intenso);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 15px 0 5px;
+}
+
+/* CARRUSEL GALERÍA */
+.gallery-carousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(244, 172, 183, 0.85);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: var(--rosa-oscuro);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ddd;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--rosa-oscuro);
+    transform: scale(1.2);
+}
+
+/* CONTACTO */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.contact-form .form-group {
+    margin-bottom: 25px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--rosa-oscuro);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: var(--rosa);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(244, 172, 183, 0.2);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, var(--rosa-oscuro), var(--rosa-intenso));
+    color: white;
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+/* MAPA */
+.location {
+    margin: 40px 0 30px;
+    text-align: center;
+}
+
+.location h4 {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.4rem;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    margin: 20px auto;
+    max-width: 600px;
+    transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+}
+
+.static-map {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.map-overlay span {
+    color: white;
+    font-weight: 600;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+}
+
+.map-container:hover .map-overlay {
+    opacity: 1;
+}
+
+.address {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    color: rgba(255,255,255,0.9);
+}
+
+/* MÉTODOS DE PAGO */
+.payment-methods {
+    margin: 40px 0 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.payment-methods h4 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.payment-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.payment-icon span {
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    margin-top: 8px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.payment-img-container {
+     width: 70px !important;  /* Reducido de 80px */
+    height: 70px !important; /* Reducido de 80px */
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.payment-custom-img {
+    width: auto;
+    height: auto;
+    max-width: 50px !important;  /* Ajustado para nuevo contenedor */
+    max-height: 50px !important; /* Ajustado para nuevo contenedor */
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.cash-container .payment-custom-img {
+    max-width: 45px !important;  /* Ajustado para efectivo */
+    padding: 5px;
+}
+
+.nequi-container .payment-custom-img {
+    max-height: 55px !important; /* Ajustado para nequi */
+}
+
+.payment-icon:hover .payment-img-container {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.payment-icon:hover .payment-custom-img {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-8px);
+}
+
+.contact-info {
+    margin: 25px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;       /* Ajusta la distancia desde abajo */
+    right: 20px;        /* Lo movemos más a la derecha */
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 99;
+    font-size: 1.8rem;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+    /* Asegura que no cubra el texto del footer */
+    margin-right: 5px;  /* Pequeño ajuste adicional si es necesario */
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* MEDIA QUERIES PARA TABLETS */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.4rem;
+    }
+    
+    .carousel-slide img {
+        height: 500px;
+    }
+    
+    .static-map {
+        height: 350px;
+    }
+}
+
+/* MEDIA QUERIES PARA ESCRITORIO */
+@media (min-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .menu-btn {
+        display: none;
+    }
+    
+    .nav-links {
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+    
+    .nav-links a {
+        padding: 8px 20px;
+        border-bottom: none;
+        font-size: 1.1rem;
+        position: relative;
+    }
+    
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        width: 0;
+        height: 2px;
+        background: var(--rosa-oscuro);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        width: calc(100% - 40px);
+    }
+    
+    .hero {
+        background-attachment: fixed;
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        margin-left: 10%;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .static-map {
+        height: 300px;
+    }
+}
+
+/* AJUSTES PARA MÓVILES PEQUEÑOS */
+
+
+@media (max-width: 480px) {
+    .whatsapp-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+
+    .logo-img {
+        height: clamp(110px, 20vw, 110px);
+        max-width: 200px;
+    }
+    
+    .header {
+        min-height: 80px;
+        padding: 8px 10px;
+    }
+    
+    .hero {
+        margin-top: 70px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .btn, .btn-reserva {
+        padding: 14px 35px;
+        font-size: 1rem;
+    }
+    
+    .carousel-slide img {
+        height: 300px;
+    }
+    
+    .contact-container {
+        padding: 25px;
+    }
+    
+    .static-map {
+        height: 200px;
+    }
+    
+    .payment-icons {
+        gap: 20px;
+    }
+    
+    .payment-img-container {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .payment-custom-img {
+        max-width: 45px;
+        max-height: 45px;
+    }
+    
+    .cash-container .payment-custom-img {
+        max-width: 40px;
+    }
+    
+    .nequi-container .payment-custom-img {
+        max-height: 50px;
+    }
+}
+
+/* ANIMACIONES */
+.visible {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ERRORES DE FORMULARIO */
+.error {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Añade esto a tu CSS */
+.contact-form button[type="submit"] {
+    display: block;
+    margin: 0 auto; /* Esto centrará el botón */
+    width: auto;    /* Asegura que no ocupe todo el ancho */
+    padding: 15px 30px; /* Mantiene el padding original */
+}
+
