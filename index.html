@@ -130,44 +130,49 @@
     </section>
 
     <!-- Contacto Section -->
-    <section class="section" id="contacto">
-        <h2 class="section-title">Reserva tu Cita</h2>
-        <div class="contact-container">
-            <form class="contact-form" action="https://formspree.io/f/{TU_ID_FORMSPREE}" method="POST">
-                <div class="form-group">
-                    <label for="name">Nombre completo</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Teléfono</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="service">Servicio</label>
-                    <select id="service" name="service" required>
-                        <option value="">Selecciona un servicio</option>
-                        <option value="manicure">Manicura Spa</option>
-                        <option value="pedicure">Pedicura Premium</option>
-                        <option value="acrilicas">Uñas Acrílicas</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="date">Fecha preferida</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Mensaje adicional</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                
-                <button type="submit" class="btn">Enviar reserva</button>
-            </form>
-        </div>
-    </section>
+<section class="section" id="contacto">
+    <h2 class="section-title">Reserva tu Cita</h2>
+    <div class="contact-container">
+        <form id="reservaWhatsApp" class="contact-form"> <!-- Eliminé action y method -->
+            <div class="form-group">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Servicio</label>
+                <select id="service" name="service" required>
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Manicura y Pedicura tradicional">Manicura y Pedicura tradicional</option>
+                    <option value="Semipermanente">Semipermanente</option>
+                    <option value="Baño en acrílico">Baño en acrílico</option>
+                    <option value="Press on">Press on</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Fecha preferida</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensaje adicional</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            
+          
+            <button type="button" onclick="enviarAWhatsApp()" class="btn">Enviar reserva</button>
+        </form>
+    </div>
+</section>
+
+
+   
 
     <!-- Footer -->
     <footer class="footer">
@@ -225,5 +230,35 @@
     </a>
 
     <script src="script.js"></script>
+
+    <script>
+function enviarAWhatsApp() {
+    const form = document.getElementById('reservaWhatsApp');
+    
+    // Obtiene los valores del formulario
+    const nombre = encodeURIComponent(form.name.value);
+    const telefono = encodeURIComponent(form.phone.value);
+    const servicio = encodeURIComponent(form.service.value);
+    const fecha = encodeURIComponent(form.date.value);
+    const mensaje = encodeURIComponent(form.message.value);
+    
+    // Crea el mensaje para WhatsApp (personaliza el texto como prefieras)
+    const texto = `📌 *NUEVA RESERVA - Aleja Torres Nails* 📌\n\n` +
+                 `👤 *Nombre:* ${nombre}\n` +
+                 `📱 *Teléfono:* ${telefono}\n` +
+                 `💅 *Servicio:* ${servicio}\n` +
+                 `📅 *Fecha:* ${fecha}\n` +
+                 `✉️ *Mensaje:* ${mensaje || 'Ninguno'}\n\n` +
+                 `*Por favor confirma esta reserva.*`;
+    
+    // Abre WhatsApp (REEMPLAZA EL NÚMERO CON EL TUYO)
+    window.open(`https://wa.me/573057242733?text=${texto}`, '_blank');
+    
+    // Opcional: Resetea el formulario y muestra alerta
+    form.reset();
+    alert("Serás redirigido a WhatsApp para confirmar tu reserva.");
+}
+</script>
+
 </body>
 </html>
